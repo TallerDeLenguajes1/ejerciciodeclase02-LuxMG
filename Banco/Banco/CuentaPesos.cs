@@ -8,8 +8,19 @@ namespace Banco
 {
     class CuentaPesos : Cuenta
     {
+        public CuentaPesos()
+        {
+            cantidadDinero = 0;
+            tipo = TipoDeCuenta.CuentaCorrientePesos;
+        }
 
-        public new void Insercion(int monto, TipoDeExtraccion tipoex)
+        public CuentaPesos(int monto)
+        {
+            cantidadDinero = monto;
+            tipo = TipoDeCuenta.CuentaCorrientePesos;
+        }
+
+        public override void Extraccion(int monto, TipoDeExtraccion tipoex)
         {
             if (cantidadDinero - monto < -5000)
                 Console.WriteLine("Fondos insuficientes.");

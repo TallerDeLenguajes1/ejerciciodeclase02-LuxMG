@@ -14,6 +14,7 @@ namespace Banco
 
     public enum TipoDeCuenta
     {
+        NULL,
         CuentaCorrientePesos,
         CuentaCorrienteDolares,
         CajaAhorroPesos
@@ -27,9 +28,18 @@ namespace Banco
         public double CantidadDinero { get => cantidadDinero; set => cantidadDinero = value; }
         public TipoDeCuenta Tipo { get => tipo; set => tipo = value; }
 
-        public void Insercion(int monto, TipoDeExtraccion tipoex)
+        public Cuenta()
         {
-            
+        }
+
+        public virtual void Extraccion(int monto, TipoDeExtraccion tipoex)
+        {
+
+        }
+
+        public void Insercion(int monto)
+        {
+            cantidadDinero += monto;
         }
         
     }
